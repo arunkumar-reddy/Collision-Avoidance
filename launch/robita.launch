@@ -1,0 +1,63 @@
+<launch>
+  <!-- Launching world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find cadrl)/worlds/robita.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+
+  <!-- Launching Robots -->
+  </include>
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r1" />
+     <arg name="robot_position" value="-x 14.0 -y 1.0 -z 0.01 -R 0 -P 0 -Y 3.14" />
+  </include>
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r2" />
+     <arg name="robot_position" value="-x 12.0 -y 6.0 -z 0.01 -R 0 -P 0 -Y -1.57" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r3" />
+     <arg name="robot_position" value="-x 8.0 -y 8.0 -z 0.01 -R 0 -P 0 -Y -1.57" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r4" />
+     <arg name="robot_position" value="-x 3.0 -y 7.0 -z 0.01 -R 0 -P 0 -Y 3.14" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r5" />
+     <arg name="robot_position" value="-x 10.0 -y -11.0 -z 0.01 -R 0 -P 0 -Y 1.57" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r6" />
+     <arg name="robot_position" value="-x 8.0 -y -14.0 -z 0.01 -R 0 -P 0 -Y 1.57" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r7" />
+     <arg name="robot_position" value="-x 4.0 -y -12.0 -z 0.01 -R 0 -P 0 -Y 0.0" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r8" />
+     <arg name="robot_position" value="-x -11.0 -y 1.0 -z 0.01 -R 0 -P 0 -Y 0.0" />
+  </include >
+  <include file="$(find cadrl)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r9" />
+     <arg name="robot_position" value="-x -12.0 -y 1.0 -z 0.01 -R 0 -P 0 -Y 0.0" />
+  </include >
+  <node pkg="cadrl" type="network.py" name="controller" output="screen"/>
+  <node pkg="cadrl" type="dynamic.py" name="dynamic" output="screen" />
+  <node pkg="cadrl" type="robot.py" name="robot1" args="r1" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot2" args="r2" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot3" args="r3" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot4" args="r4" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot5" args="r5" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot6" args="r6" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot7" args="r7" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot8" args="r8" output="screen"/>
+  <node pkg="cadrl" type="robot.py" name="robot9" args="r9" output="screen"/>
+  <!-- Launching Controllers -->
+  <!-- RVIZ -->
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find cadrl)/launch/pioneer3dx.rviz" /> -->
+</launch>

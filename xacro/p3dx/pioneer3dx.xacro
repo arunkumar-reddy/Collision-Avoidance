@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="pioneer3dx" >
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find cadrl)/xacro/materials.xacro" />
+
+  <!-- Import robot -->
+  <xacro:include filename="$(find cadrl)/xacro/p3dx/pioneer3dx_body.xacro"/>
+  <xacro:pioneer3dx_body name="chassis" parent="base_link" meshes="package://cadrl/meshes/p3dx"/>
+
+  <!-- Laser  -->
+  <xacro:include filename="$(find cadrl)/xacro/laser/hokuyo.xacro"/>
+  <xacro:laser name="laser" parent="chassis" xyz="0.18 0.0 0.15" rpy="0 0 0" meshes="package://cadrl/meshes/laser"/>
+  
+  <!-- Contact 
+  <xacro:include filename="$(find cadrl)/xacro/contact/bumper.xacro"/>
+  <xacro:bumper name="bumper" parent="chassis" xyz="0.17 0 0.1" rpy="0 0 0"/>
+  -->
+  <!-- GPU Laser
+  <xacro:include filename="$(find cadrl)/xacro/laser/hokuyo_gpu.xacro"/>
+  <xacro:laser_gpu name="front_laser" parent="chassis" xyz="0.16 0 0.1" rpy="0 0 0" meshes="package://cadrl/meshes/laser" />
+  -->
+
+  <!-- Camera
+  <xacro:include filename="$(find cadrl)/xacro/camera/camera.xacro"/>
+  <xacro:cam name="front_camera" parent="chassis" xyz="0 0 0.5" rpy="0 0 0" />
+  -->
+</robot>

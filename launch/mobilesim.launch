@@ -1,0 +1,34 @@
+<launch>
+  <node pkg="rosaria" type="RosAria" name="r1">
+    <param name="port" value="localhost:8101" type="string"/>
+    <param name="publish_aria_lasers" value="true" type="boolean"/>
+  </node>
+  <node pkg="rosaria" type="RosAria" name="r2">
+    <param name="port" value="localhost:8102" type="string"/>
+    <param name="publish_aria_lasers" value="true" type="boolean"/>
+  </node>
+  <node pkg="rosaria" type="RosAria" name="r3">
+    <param name="port" value="localhost:8103" type="string"/> 
+    <param name="publish_aria_lasers" value="true" type="boolean"/>
+  </node>
+  <node pkg="rosaria" type="RosAria" name="r4">
+    <param name="port" value="localhost:8104" type="string"/>
+    <param name="publish_aria_lasers" value="true" type="boolean"/>
+  </node>
+  <node pkg="rosaria" type="RosAria" name="r5">
+    <param name="port" value="localhost:8105" type="string"/>
+    <param name="publish_aria_lasers" value="true" type="boolean"/>
+  </node>
+  <node pkg="rosaria" type="RosAria" name="r6">
+    <param name="port" value="localhost:8106" type="string"/>
+    <param name="publish_aria_lasers" value="true" type="boolean"/>
+  </node>
+  <node pkg="cadrl" type="network.py" name="controller" output="screen"/>
+  <node pkg="cadrl" type="dynamic.py" name="dynamic" output="screen" />
+  <node pkg="cadrl" type="mobilesim.py" name="robot1" args="r1" output="screen"/>
+  <node pkg="cadrl" type="mobilesim.py" name="robot2" args="r2" output="screen"/>
+  <node pkg="cadrl" type="mobilesim.py" name="robot3" args="r3" output="screen"/>
+  <node pkg="cadrl" type="mobilesim.py" name="robot4" args="r4" output="screen"/>
+  <node pkg="cadrl" type="mobilesim.py" name="robot5" args="r5" output="screen"/>
+  <node pkg="cadrl" type="mobilesim.py" name="robot6" args="r6" output="screen"/>
+</launch>
